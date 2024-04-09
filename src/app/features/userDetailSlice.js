@@ -8,3 +8,5 @@ export const userDetailSlice = createSlice({
     error: null,
   },
 });
+
+export default userDetailSlice.reducer;
