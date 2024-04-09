@@ -20,7 +20,7 @@ const Search = styled("div")(({ theme }) => ({
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: "auto",
+    width: "40%",
   },
 }));
 
@@ -81,7 +81,7 @@ const Navber = () => {
               marginRight: "20px",
             }}
           >
-            Home
+            Create
           </Link>
           <Link
             style={{
@@ -91,7 +91,7 @@ const Navber = () => {
               marginRight: "20px",
             }}
           >
-            Home
+            All Post
           </Link>
           <Search>
             <SearchIconWrapper>
