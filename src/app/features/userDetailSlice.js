@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+// create Action
+
 export const createUser = createAsyncThunk(
   "createuser",
   async (data, { rejectWithValue }) => {
@@ -13,6 +15,20 @@ export const createUser = createAsyncThunk(
         body: JSON.stringify(data),
       }
     );
+    try {
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+// Read Action
+export const ReadUser = createAsyncThunk(
+  "readuser",
+  async (_, { rejectWithValue }) => {
+    const res = await fetch("https://6614ff462fc47b4cf27dae4a.mockapi.io/curd");
     try {
       const data = await res.json();
       return data;
@@ -42,6 +58,17 @@ export const userDetailSlice = createSlice({
         state.loading = false;
         state.error = action.payload.message;
       });
+    builder.addCase(ReadUser.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(ReadUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.users = action.payload;
+    });
+    builder.addCase(ReadUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    });
   },
 });
 

@@ -91,6 +91,7 @@ const Navber = () => {
               fontSize: "20px",
               marginRight: "20px",
             }}
+            to="/read"
           >
             All Post
           </Link>

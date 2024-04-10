@@ -4,7 +4,16 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { ReadUser } from "../app/features/userDetailSlice";
 const Read = () => {
+  const dispatch = useDispatch();
+  const { users, loading } = useSelector((state) => state.app);
+  useEffect(() => {
+    dispatch(ReadUser());
+  }, []);
   return (
     <Box>
       <Card
