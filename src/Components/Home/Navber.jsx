@@ -80,6 +80,7 @@ const Navber = () => {
               fontSize: "20px",
               marginRight: "20px",
             }}
+            to="/create"
           >
             Create
           </Link>
