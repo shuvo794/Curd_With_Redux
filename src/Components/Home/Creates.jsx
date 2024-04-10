@@ -5,21 +5,23 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { createUser } from "../../app/features/userDetailSlice";
 const Creates = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
 
   const marginTop = { marginTop: 5 };
   const [users, setUsers] = useState({});
+  const dispatch = useDispatch();
 
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
     console.log(users);
   };
-  const hendelSubmited = () => {
-    console.log("text");
-    alert("text");
+  const hendelSubmited = (e) => {
+    e.preventDefault();
+    dispatch(createUser(users));
   };
   return (
     <Grid>
