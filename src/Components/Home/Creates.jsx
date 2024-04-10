@@ -18,7 +18,6 @@ const Creates = () => {
   const navigate = useNavigate();
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
-    console.log(users);
   };
   const hendelSubmited = (e) => {
     e.preventDefault();
