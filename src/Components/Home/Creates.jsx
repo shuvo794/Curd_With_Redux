@@ -12,6 +12,7 @@ const Creates = () => {
 
   const marginTop = { marginTop: 5 };
   const [users, setUsers] = useState({});
+  setUsers({ ...users, [e.target.name]: e.target.value });
 
   return (
     <form>
@@ -24,9 +25,24 @@ const Creates = () => {
             </Typography>
           </Grid>
           <form>
-            <TextField fullWidth label="Name" placeholder="Enter your name" />
-            <TextField fullWidth label="Email" placeholder="Enter your email" />
-            <TextField fullWidth label="age" placeholder="Enter your Age" />
+            <TextField
+              fullWidth
+              label="Name"
+              name="name"
+              placeholder="Enter your name"
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <TextField
+              fullWidth
+              label="age"
+              name="age"
+              placeholder="Enter your Age"
+            />
             <FormControl component="fieldset" style={marginTop}>
               <FormLabel component="legend">Gender</FormLabel>
               <RadioGroup
@@ -35,11 +51,13 @@ const Creates = () => {
                 style={{ display: "initial" }}
               >
                 <FormControlLabel
+                  name="gender"
                   value="female"
                   control={<Radio />}
                   label="Female"
                 />
                 <FormControlLabel
+                  name="gender"
                   value="male"
                   control={<Radio />}
                   label="Male"
