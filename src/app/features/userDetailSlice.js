@@ -10,9 +10,7 @@ export const createUser = createAsyncThunk(
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: "test",
-        }),
+        body: JSON.stringify(data),
       }
     );
 
