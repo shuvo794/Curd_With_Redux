@@ -17,69 +17,71 @@ const Creates = () => {
     setUsers({ ...users, [e.target.name]: e.target.value });
     console.log(users);
   };
+  const hendelSubmited = () => {
+    console.log("text");
+    alert("text");
+  };
   return (
-    <form>
-      <Grid>
-        <Paper elevation={20} style={paperStyle}>
-          <Grid align="center">
-            <h2 style={headerStyle}>Create List</h2>
-            <Typography variant="caption" gutterBottom>
-              Please fill this form to create an account !
-            </Typography>
-          </Grid>
-          <form>
-            <TextField
-              fullWidth
-              label="Name"
-              name="name"
-              placeholder="Enter your name"
-              onChange={getUserData}
-            />
-            <TextField
-              fullWidth
-              label="Email"
-              name="email"
-              placeholder="Enter your email"
-              onChange={getUserData}
-            />
-            <TextField
-              fullWidth
-              label="age"
-              name="age"
-              placeholder="Enter your Age"
-              onChange={getUserData}
-            />
-            <FormControl component="fieldset" style={marginTop}>
-              <FormLabel component="legend">Gender</FormLabel>
-              <RadioGroup
-                aria-label="gender"
+    <Grid>
+      <Paper elevation={20} style={paperStyle} onSubmit={hendelSubmited}>
+        <Grid align="center">
+          <h2 style={headerStyle}>Create List</h2>
+          <Typography variant="caption" gutterBottom>
+            Please fill this form to create an account !
+          </Typography>
+        </Grid>
+        <form>
+          <TextField
+            fullWidth
+            label="Name"
+            name="name"
+            placeholder="Enter your name"
+            onChange={getUserData}
+          />
+          <TextField
+            fullWidth
+            label="Email"
+            name="email"
+            placeholder="Enter your email"
+            onChange={getUserData}
+          />
+          <TextField
+            fullWidth
+            label="age"
+            name="age"
+            placeholder="Enter your Age"
+            onChange={getUserData}
+          />
+          <FormControl component="fieldset" style={marginTop}>
+            <FormLabel component="legend">Gender</FormLabel>
+            <RadioGroup
+              aria-label="gender"
+              name="gender"
+              style={{ display: "initial" }}
+            >
+              <FormControlLabel
                 name="gender"
-                style={{ display: "initial" }}
-              >
-                <FormControlLabel
-                  name="gender"
-                  value="female"
-                  control={<Radio />}
-                  label="Female"
-                  onChange={getUserData}
-                />
-                <FormControlLabel
-                  name="gender"
-                  value="male"
-                  control={<Radio />}
-                  label="Male"
-                  onChange={getUserData}
-                />
-              </RadioGroup>
-            </FormControl>
-            <br />
-            <Button type="submit" variant="contained" color="primary">
-              Submit
-            </Button>
-          </form>
-        </Paper>
-      </Grid>
-    </form>
+                value="female"
+                control={<Radio />}
+                label="Female"
+                onChange={getUserData}
+              />
+              <FormControlLabel
+                name="gender"
+                value="male"
+                control={<Radio />}
+                label="Male"
+                onChange={getUserData}
+              />
+            </RadioGroup>
+          </FormControl>
+          <br />
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
+        </form>
+      </Paper>
+    </Grid>
   );
 };
 
