@@ -12,8 +12,10 @@ const Creates = () => {
 
   const marginTop = { marginTop: 5 };
   const [users, setUsers] = useState({});
-  setUsers({ ...users, [e.target.name]: e.target.value });
 
+  const getUserData = (e) => {
+    setUsers({ ...users, [e.target.name]: e.target.value });
+  };
   return (
     <form>
       <Grid>
@@ -36,6 +38,7 @@ const Creates = () => {
               label="Email"
               name="email"
               placeholder="Enter your email"
+              onChange={getUserData}
             />
             <TextField
               fullWidth
