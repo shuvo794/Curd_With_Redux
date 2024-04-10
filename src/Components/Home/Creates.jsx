@@ -45,6 +45,7 @@ const Creates = () => {
               label="age"
               name="age"
               placeholder="Enter your Age"
+              onChange={getUserData}
             />
             <FormControl component="fieldset" style={marginTop}>
               <FormLabel component="legend">Gender</FormLabel>
@@ -58,12 +59,14 @@ const Creates = () => {
                   value="female"
                   control={<Radio />}
                   label="Female"
+                  onChange={getUserData}
                 />
                 <FormControlLabel
                   name="gender"
                   value="male"
                   control={<Radio />}
                   label="Male"
+                  onChange={getUserData}
                 />
               </RadioGroup>
             </FormControl>
