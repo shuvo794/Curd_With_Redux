@@ -6,6 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createUser } from "../../app/features/userDetailSlice";
 const Creates = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
@@ -14,7 +15,7 @@ const Creates = () => {
   const marginTop = { marginTop: 5 };
   const [users, setUsers] = useState({});
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
     console.log(users);
@@ -23,6 +24,7 @@ const Creates = () => {
     e.preventDefault();
     dispatch(createUser(users));
     console.log("users", users);
+    navigate("/read");
   };
   return (
     <Grid>
