@@ -13,7 +13,6 @@ export const createUser = createAsyncThunk(
         body: JSON.stringify(data),
       }
     );
-
     try {
       const data = await res.json();
       return data;
@@ -29,19 +28,20 @@ export const userDetailSlice = createSlice({
     users: [],
     loading: false,
     error: null,
-    extraReducers: {
-      [createUser.pending]: (state) => {
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(createUser.pending, (state) => {
         state.loading = true;
-      },
-      [createUser.fulfilled]: (state, action) => {
+      })
+      .addCase(createUser.fulfilled, (state, action) => {
         state.loading = false;
         state.users.push(action.payload);
-      },
-      [createUser.rejected]: (state, action) => {
+      })
+      .addCase(createUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
-      },
-    },
+      });
   },
 });
 

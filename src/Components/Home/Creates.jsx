@@ -22,6 +22,7 @@ const Creates = () => {
   const hendelSubmited = (e) => {
     e.preventDefault();
     dispatch(createUser(users));
+    console.log("users", users);
   };
   return (
     <Grid>
