@@ -4,12 +4,14 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import { useState } from "react";
 
 const Creates = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
   // const avatarStyle = { backgroundColor: "#1bbd7e" };
   const marginTop = { marginTop: 5 };
+  const [users, setUsers] = useState({});
   return (
     <form>
       <Grid>
