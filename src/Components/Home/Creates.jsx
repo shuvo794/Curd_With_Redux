@@ -15,6 +15,7 @@ const Creates = () => {
 
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
+    console.log(users);
   };
   return (
     <form>
@@ -32,6 +33,7 @@ const Creates = () => {
               label="Name"
               name="name"
               placeholder="Enter your name"
+              onChange={getUserData}
             />
             <TextField
               fullWidth
