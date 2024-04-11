@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../app/features/userDetailSlice";
@@ -21,7 +21,13 @@ const Update = () => {
 
   const marginTop = { marginTop: 5 };
   const { id } = useParams();
-  const { users, loading } = useSelector((state) => state.app);
+  const { users, loading } = useSelector((state) => state.app.users);
+  const [update, setUpdate] = useState();
+  useEffect(() => {
+    if (id) {
+      const singelUser = users.filter((user) => user.id === id);
+    }
+  }, []);
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
