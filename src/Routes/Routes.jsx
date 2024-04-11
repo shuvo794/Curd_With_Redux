@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../Components/Home/Home";
 import Creates from "../Components/Home/Creates";
 import Read from "../Components/Read";
+import Update from "../Components/Update/Update";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/create",
         element: <Creates></Creates>,
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
       },
       {
         path: "/read",
