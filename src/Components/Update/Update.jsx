@@ -24,7 +24,7 @@ const Update = () => {
   const { users, loading } = useSelector((state) => state.app);
   return (
     <Grid>
-      <Paper elevation={20} style={paperStyle} onSubmit={hendelSubmited}>
+      <Paper elevation={20} style={paperStyle}>
         <Grid align="center">
           <h2 style={headerStyle}>Create List</h2>
           <Typography variant="caption" gutterBottom>
