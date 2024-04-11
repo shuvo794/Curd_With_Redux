@@ -7,9 +7,6 @@ import FormLabel from "@material-ui/core/FormLabel";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { createUser } from "../../app/features/userDetailSlice";
 
 const Update = () => {
   const paperStyle = {
@@ -21,13 +18,17 @@ const Update = () => {
 
   const marginTop = { marginTop: 5 };
   const { id } = useParams();
-  const { users, loading } = useSelector((state) => state.app.users);
-  const [update, setUpdate] = useState();
+  const { users, loading } = useSelector((state) => state.app);
+  const [updateData, setUpdateData] = useState();
+
   useEffect(() => {
     if (id) {
-      const singelUser = users.filter((user) => user.id === id);
+      const Singelusers = users.filter((user) => user.id === id);
+      setUpdateData(Singelusers);
     }
   }, []);
+
+  console.log(updateData);
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
