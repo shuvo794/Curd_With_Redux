@@ -8,7 +8,7 @@ import InputBase from "@mui/material/InputBase";
 
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -51,6 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 const Navber = () => {
+  const allDatas = useSelector((state) => state.app.users);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "black" }}>
@@ -93,7 +94,7 @@ const Navber = () => {
             }}
             to="/read"
           >
-            All Post
+            All Post ({allDatas.length})
           </Link>
           <Search>
             <SearchIconWrapper>
