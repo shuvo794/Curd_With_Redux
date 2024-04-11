@@ -61,7 +61,9 @@ const Read = () => {
               >
                 Viwe
               </a>
-              <Link style={{ marginLeft: "20px" }}>Edit</Link>
+              <Link to={`/update/${user.id}`} style={{ marginLeft: "20px" }}>
+                Edit
+              </Link>
               <Link
                 onClick={() => {
                   dispatch(deleteUser(user.id));
