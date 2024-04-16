@@ -29,7 +29,11 @@ const Update = () => {
     }
   }, []);
 
-  console.log(updateData);
+  const newData = (e) => {
+    setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+  };
+
+  console.log("updateData", updateData);
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
@@ -45,24 +49,24 @@ const Update = () => {
             label="Name"
             name="name"
             placeholder="Enter your name"
-            value={updateData && updateData[0].name}
-            // onChange={getUserData}
+            value={updateData && updateData.name}
+            onChange={newData}
           />
           <TextField
             fullWidth
             label="Email"
             name="email"
             placeholder="Enter your email"
-            value={updateData && updateData[0].email}
-            // onChange={getUserData}/
+            value={updateData && updateData.email}
+            onChange={newData}
           />
           <TextField
             fullWidth
             label="age"
             name="age"
             placeholder="Enter your Age"
-            value={updateData && updateData[0].age}
-            // onChange={getUserData}
+            value={updateData && updateData.age}
+            onChange={newData}
           />
           <FormControl component="fieldset" style={marginTop}>
             <FormLabel component="legend">Gender</FormLabel>
@@ -75,17 +79,17 @@ const Update = () => {
                 name="gender"
                 value="female"
                 control={<Radio />}
-                checked={updateData && updateData[0].gender === "female"}
+                checked={updateData && updateData.gender === "female"}
                 label="Female"
-                // onChange={getUserData}
+                onChange={newData}
               />
               <FormControlLabel
                 name="gender"
                 value="male"
                 control={<Radio />}
-                checked={updateData && updateData[0].gender === "male"}
+                checked={updateData && updateData.gender === "male"}
                 label="Male"
-                // onChange={getUserData}
+                onChange={newData}
               />
             </RadioGroup>
           </FormControl>
